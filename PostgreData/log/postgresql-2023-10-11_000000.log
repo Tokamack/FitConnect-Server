@@ -1,0 +1,6 @@
+2023-10-11 07:07:03.878 MSK [20968] FATAL:  password authentication failed for user "postgres"
+2023-10-11 07:07:03.878 MSK [20968] DETAIL:  Connection matched file "C:/Go/PostgreData/pg_hba.conf" line 117: "host    all             all             ::1/128                 scram-sha-256"
+2023-10-11 07:07:43.568 MSK [19276] СООБЩЕНИЕ:  не удалось получить данные от клиента: An existing connection was forcibly closed by the remote host.
+	
+2023-10-11 07:08:08.716 MSK [5428] LOG:  checkpoint starting: time
+2023-10-11 07:08:10.065 MSK [5428] LOG:  checkpoint complete: wrote 12 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.320 s, sync=0.007 s, total=1.353 s; sync files=3, longest=0.003 s, average=0.003 s; distance=25 kB, estimate=25 kB; lsn=0/17C17E0, redo lsn=0/17C17A8

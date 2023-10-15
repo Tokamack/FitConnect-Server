@@ -1,0 +1,47 @@
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+    - name: Pull
+      run: |
+        cd /home/lamer/FitConnect-Server
+        git pull
+    - name: Stop Docker container
+      run: |
+        cd /home/lamer/FitConnect-Server
+        CONTAINER_ID=$(cat container_id.txt)
+        docker stop $CONTAINER_ID
+        docker rm $CONTAINER_ID
+      continue-on-error: true
+    - name: Remove Docker image
+      run: |
+        cd /home/lamer/FitConnect-Server
+        IMAGE_ID=$(cat image_id.txt)
+        docker rmi $IMAGE_ID
+      continue-on-error: true
+    - name: Build go file
+      run: |
+        cd /home/lamer/FitConnect-Server
+        go build main.go
+    - name: Build Docker image
+      run: |
+        cd /home/lamer/FitConnect-Server
+        docker build -t main_go .
+        IMAGE_ID=$(docker images -q main_go)
+        echo $IMAGE_ID > image_id.txt
+      env:
+        DOCKER_BUILDKIT: 1
+    - name: Run Docker container
+      run: |
+        cd /home/lamer/FitConnect-Server
+        docker run -d --restart=always --network host -p 8080:8080 main_go
+        CONTAINER_ID=$(docker ps -a -q)
+        echo $CONTAINER_ID > container_id.txt

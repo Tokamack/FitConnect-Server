@@ -1,0 +1,73 @@
+2023-10-08 20:58:53.464 MSK [4120] LOG:  checkpoint starting: time
+2023-10-08 20:58:54.816 MSK [4120] LOG:  checkpoint complete: wrote 13 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.314 s, sync=0.023 s, total=1.355 s; sync files=11, longest=0.003 s, average=0.003 s; distance=61 kB, estimate=208 kB; lsn=0/1672770, redo lsn=0/1672738
+2023-10-08 21:08:53.837 MSK [4120] LOG:  checkpoint starting: time
+2023-10-08 21:08:58.418 MSK [4120] LOG:  checkpoint complete: wrote 42 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.494 s, sync=0.074 s, total=4.581 s; sync files=34, longest=0.006 s, average=0.003 s; distance=151 kB, estimate=202 kB; lsn=0/16986A8, redo lsn=0/1698670
+2023-10-08 22:05:26.884 MSK [1936] ОШИБКА:  удалить объект таблица gyms нельзя, так как от него зависят другие объекты
+2023-10-08 22:05:26.884 MSK [1936] ПОДРОБНОСТИ:  ограничение favorite_gyms_gym_id_fkey в отношении таблица favorite_gyms зависит от объекта таблица gyms
+2023-10-08 22:05:26.884 MSK [1936] ПОДСКАЗКА:  Для удаления зависимых объектов используйте DROP ... CASCADE.
+2023-10-08 22:05:26.884 MSK [1936] ОПЕРАТОР:  DROP TABLE IF EXISTS public.gyms;
+2023-10-08 22:08:53.528 MSK [4120] LOG:  checkpoint starting: time
+2023-10-08 22:08:55.312 MSK [4120] LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.750 s, sync=0.022 s, total=1.784 s; sync files=12, longest=0.004 s, average=0.002 s; distance=84 kB, estimate=190 kB; lsn=0/16ADA80, redo lsn=0/16ADA48
+2023-10-08 23:12:39.884 MSK [20780] ОШИБКА:  ошибка синтаксиса (примерное положение: "SERIAL") (символ 185)
+2023-10-08 23:12:39.884 MSK [20780] ОПЕРАТОР:  EXPLAIN (FORMAT JSON, ANALYZE false, VERBOSE false, COSTS false, TIMING false, BUFFERS false, SUMMARY false, SETTINGS false, WAL false) CREATE TABLE IF NOT EXISTS clubs_short (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    images TEXT NOT NULL,  											
+	    location_id INT REFERENCES locations(id),
+	    score DOUBLE PRECISION NOT NULL,
+	    contacts_id INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost INT NOT NULL,
+	    isFavorite BOOLEAN NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_full (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    imagesRes INT[] NOT NULL,
+	    location_latitude DOUBLE PRECISION NOT NULL,
+	    location_longitude DOUBLE PRECISION NOT NULL,
+	    location_address VARCHAR(255) NOT NULL,
+	    location_city VARCHAR(255) NOT NULL,
+	    location_metro VARCHAR(255),
+	    score DOUBLE PRECISION NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost INT NOT NULL,
+	    isFavorite BOOLEAN NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coach (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score DOUBLE PRECISION NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS review (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT NOT NULL,
+	    text TEXT NOT NULL,
+	    trainer_id INT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS sport_club_admin (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    phone VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS facility (
+	    id VARCHAR(255) PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    iconRes INT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs_category (
+	    id VARCHAR(255) PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS sort_type (
+	    id VARCHAR(255) PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL
+	);

@@ -1,0 +1,3 @@
+2023-10-14 22:36:47.866 MSK [5904] LOG:  database system was shut down at 2023-10-14 22:36:10 MSK
+2023-10-14 22:41:47.870 MSK [5884] LOG:  checkpoint starting: time
+2023-10-14 22:41:47.885 MSK [5884] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.004 s, total=0.017 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/190BEF0, redo lsn=0/190BEB8

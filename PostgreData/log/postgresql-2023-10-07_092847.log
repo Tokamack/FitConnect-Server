@@ -1,0 +1,195 @@
+2023-10-07 09:28:47.851 MSK [4144] LOG:  database system was shut down at 2023-10-07 09:28:14 MSK
+2023-10-07 09:33:47.837 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 09:33:47.852 MSK [4120] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.004 s, total=0.016 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/15D4598, redo lsn=0/15D4560
+2023-10-07 09:43:47.866 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 09:43:48.885 MSK [4120] LOG:  checkpoint complete: wrote 9 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.999 s, sync=0.008 s, total=1.020 s; sync files=4, longest=0.003 s, average=0.002 s; distance=37 kB, estimate=37 kB; lsn=0/15DDA38, redo lsn=0/15DDA00
+2023-10-07 09:48:47.900 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 09:48:52.268 MSK [4120] LOG:  checkpoint complete: wrote 40 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.285 s, sync=0.070 s, total=4.369 s; sync files=36, longest=0.003 s, average=0.002 s; distance=149 kB, estimate=149 kB; lsn=0/1602F90, redo lsn=0/1602F20
+2023-10-07 09:53:19.053 MSK [4484] ОШИБКА:  столбец "AAA" не существует (символ 41)
+2023-10-07 09:53:19.053 MSK [4484] ОПЕРАТОР:  INSERT INTO users (id, name) VALUES (0, "AAA")
+2023-10-07 09:54:15.817 MSK [4484] ОШИБКА:  в столбец "id" можно вставить только значение по умолчанию
+2023-10-07 09:54:15.817 MSK [4484] ПОДРОБНОСТИ:  Столбец "id" является столбцом идентификации со свойством GENERATED ALWAYS.
+2023-10-07 09:54:15.817 MSK [4484] ПОДСКАЗКА:  Для переопределения укажите OVERRIDING SYSTEM VALUE.
+2023-10-07 09:54:15.817 MSK [4484] ОПЕРАТОР:  INSERT INTO users (id, name) VALUES (0, 'AAA')
+2023-10-07 09:58:47.290 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 09:58:48.420 MSK [4120] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.097 s, sync=0.017 s, total=1.131 s; sync files=9, longest=0.003 s, average=0.002 s; distance=0 kB, estimate=134 kB; lsn=0/1603258, redo lsn=0/1603220
+2023-10-07 10:23:47.444 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 10:23:54.800 MSK [4120] LOG:  checkpoint complete: wrote 67 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=7.266 s, sync=0.077 s, total=7.357 s; sync files=52, longest=0.003 s, average=0.002 s; distance=263 kB, estimate=263 kB; lsn=0/1644F10, redo lsn=0/1644ED8
+2023-10-07 10:26:55.949 MSK [16804] ОШИБКА:  ошибка синтаксиса (примерное положение: ";") (символ 390)
+2023-10-07 10:26:55.949 MSK [16804] ОПЕРАТОР:  -- Вставка тестовых данных в таблицу "Спортзалы"
+	INSERT INTO gyms (name, photos, nearest_metro, address, average_rating, rating_count, price)
+	VALUES
+	    ('Спортзал 1', '["фото1.jpg", "фото2.jpg", "фото3.jpg"]', 'Метро 1', 'Адрес 1', 4.5, 100, 30.00),
+	    ('Спортзал 2', '["фото4.jpg", "фото5.jpg"]', 'Метро 2', 'Адрес 2', 4.0, 80, 25.00),
+	    -- Добавьте другие спортзалы по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Пользователи"
+	INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Избранные спортзалы"
+	INSERT INTO favorite_gyms (user_id, gym_id)
+	VALUES
+	    (1, 1),  -- Пользователь 1 добавляет Спортзал 1 в избранное
+	    (1, 2),  -- Пользователь 1 добавляет Спортзал 2 в избранное
+	    (2, 1),  -- Пользователь 2 добавляет Спортзал 1 в избранное
+	    -- Добавьте другие записи в избранное по необходимости
+	;
+	
+	
+2023-10-07 10:27:02.840 MSK [16804] ОШИБКА:  ошибка синтаксиса (примерное положение: ";") (символ 390)
+2023-10-07 10:27:02.840 MSK [16804] ОПЕРАТОР:  -- Вставка тестовых данных в таблицу "Спортзалы"
+	INSERT INTO gyms (name, photos, nearest_metro, address, average_rating, rating_count, price)
+	VALUES
+	    ('Спортзал 1', '["фото1.jpg", "фото2.jpg", "фото3.jpg"]', 'Метро 1', 'Адрес 1', 4.5, 100, 30.00),
+	    ('Спортзал 2', '["фото4.jpg", "фото5.jpg"]', 'Метро 2', 'Адрес 2', 4.0, 80, 25.00),
+	    -- Добавьте другие спортзалы по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Пользователи"
+	INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Избранные спортзалы"
+	INSERT INTO favorite_gyms (user_id, gym_id)
+	VALUES
+	    (1, 1),  -- Пользователь 1 добавляет Спортзал 1 в избранное
+	    (1, 2),  -- Пользователь 1 добавляет Спортзал 2 в избранное
+	    (2, 1),  -- Пользователь 2 добавляет Спортзал 1 в избранное
+	    -- Добавьте другие записи в избранное по необходимости
+	
+2023-10-07 10:28:14.429 MSK [19740] ОШИБКА:  ошибка синтаксиса (примерное положение: ";") (символ 390)
+2023-10-07 10:28:14.429 MSK [19740] ОПЕРАТОР:  -- Вставка тестовых данных в таблицу "Спортзалы"
+	INSERT INTO gyms (name, photos, nearest_metro, address, average_rating, rating_count, price)
+	VALUES
+	    ('Спортзал 1', '["фото1.jpg", "фото2.jpg", "фото3.jpg"]', 'Метро 1', 'Адрес 1', 4.5, 100, 30.00),
+	    ('Спортзал 2', '["фото4.jpg", "фото5.jpg"]', 'Метро 2', 'Адрес 2', 4.0, 80, 25.00),
+	    -- Добавьте другие спортзалы по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Пользователи"
+	INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	;
+	
+	-- Вставка тестовых данных в таблицу "Избранные спортзалы"
+	INSERT INTO favorite_gyms (user_id, gym_id)
+	VALUES
+	    (1, 1),  -- Пользователь 1 добавляет Спортзал 1 в избранное
+	    (1, 2),  -- Пользователь 1 добавляет Спортзал 2 в избранное
+	    (2, 1),  -- Пользователь 2 добавляет Спортзал 1 в избранное
+	    -- Добавьте другие записи в избранное по необходимости
+	;
+	
+2023-10-07 10:28:19.404 MSK [19740] ОШИБКА:  ошибка синтаксиса (примерное положение: "INSERT") (символ 444)
+2023-10-07 10:28:19.404 MSK [19740] ОПЕРАТОР:  -- Вставка тестовых данных в таблицу "Спортзалы"
+	INSERT INTO gyms (name, photos, nearest_metro, address, average_rating, rating_count, price)
+	VALUES
+	    ('Спортзал 1', '["фото1.jpg", "фото2.jpg", "фото3.jpg"]', 'Метро 1', 'Адрес 1', 4.5, 100, 30.00),
+	    ('Спортзал 2', '["фото4.jpg", "фото5.jpg"]', 'Метро 2', 'Адрес 2', 4.0, 80, 25.00),
+	    -- Добавьте другие спортзалы по необходимости
+	
+	
+	-- Вставка тестовых данных в таблицу "Пользователи"
+	INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	
+	
+	-- Вставка тестовых данных в таблицу "Избранные спортзалы"
+	INSERT INTO favorite_gyms (user_id, gym_id)
+	VALUES
+	    (1, 1),  -- Пользователь 1 добавляет Спортзал 1 в избранное
+	    (1, 2),  -- Пользователь 1 добавляет Спортзал 2 в избранное
+	    (2, 1),  -- Пользователь 2 добавляет Спортзал 1 в избранное
+	    -- Добавьте другие записи в избранное по необходимости
+	
+	
+2023-10-07 10:29:20.786 MSK [19740] ОШИБКА:  ошибка синтаксиса (примерное положение: "INSERT") (символ 443)
+2023-10-07 10:29:20.786 MSK [19740] ОПЕРАТОР:  -- Вставка тестовых данных в таблицу "Спортзалы"
+	INSERT INTO gyms (name, photos, nearest_metro, address, average_rating, rating_count, price)
+	VALUES
+	    ('Спортзал 1', '["фото1.jpg", "фото2.jpg", "фото3.jpg"]', 'Метро 1', 'Адрес 1', 4.5, 100, 30.00),
+	    ('Спортзал 2', '["фото4.jpg", "фото5.jpg"]', 'Метро 2', 'Адрес 2', 4.0, 80, 25.00)
+	    -- Добавьте другие спортзалы по необходимости
+	
+	
+	-- Вставка тестовых данных в таблицу "Пользователи"
+	INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2')
+	    -- Добавьте других пользователей по необходимости
+	
+	
+	-- Вставка тестовых данных в таблицу "Избранные спортзалы"
+	INSERT INTO favorite_gyms (user_id, gym_id)
+	VALUES
+	    (1, 1),  -- Пользователь 1 добавляет Спортзал 1 в избранное
+	    (1, 2),  -- Пользователь 1 добавляет Спортзал 2 в избранное
+	    (2, 1)  -- Пользователь 2 добавляет Спортзал 1 в избранное
+	    -- Добавьте другие записи в избранное по необходимости
+	
+	
+2023-10-07 10:29:37.373 MSK [19740] ОШИБКА:  отношение "users" уже существует
+2023-10-07 10:29:37.373 MSK [19740] ОПЕРАТОР:  CREATE TABLE users (
+	    user_id SERIAL PRIMARY KEY,
+	    username VARCHAR(255) NOT NULL,
+	    email VARCHAR(255) NOT NULL UNIQUE,
+	    password VARCHAR(255) NOT NULL
+	    -- Добавьте другие поля пользователя по необходимости
+	);
+2023-10-07 10:29:53.686 MSK [19740] ОШИБКА:  отношение "favorite_gyms" уже существует
+2023-10-07 10:29:53.686 MSK [19740] ОПЕРАТОР:  CREATE TABLE favorite_gyms (
+	    favorite_id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+	    gym_id INT REFERENCES gyms(gym_id) ON DELETE CASCADE
+	);
+2023-10-07 10:30:06.956 MSK [19740] ОШИБКА:  ошибка синтаксиса (примерное положение: ";") (символ 220)
+2023-10-07 10:30:06.956 MSK [19740] ОПЕРАТОР:  INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	;
+2023-10-07 10:30:12.152 MSK [19740] ОШИБКА:  ошибка синтаксиса в конце (символ 220)
+2023-10-07 10:30:12.152 MSK [19740] ОПЕРАТОР:  INSERT INTO users (username, email, password)
+	VALUES
+	    ('user1', 'user1@example.com', 'hashed_password1'),
+	    ('user2', 'user2@example.com', 'hashed_password2'),
+	    -- Добавьте других пользователей по необходимости
+	
+2023-10-07 10:33:47.814 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 10:33:51.289 MSK [4120] LOG:  checkpoint complete: wrote 32 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.401 s, sync=0.055 s, total=3.476 s; sync files=27, longest=0.004 s, average=0.003 s; distance=63 kB, estimate=243 kB; lsn=0/1654E40, redo lsn=0/1654E08
+2023-10-07 18:25:55.850 MSK [6072] СООБЩЕНИЕ:  не удалось получить данные от клиента: An existing connection was forcibly closed by the remote host.
+	
+2023-10-07 21:59:03.765 MSK [2880] ОШИБКА:  столбец "name" в таблице "users" не существует (символ 20)
+2023-10-07 21:59:03.765 MSK [2880] ОПЕРАТОР:  INSERT INTO users (name) VALUES ("toka")
+	
+2023-10-07 21:59:16.937 MSK [2880] ОШИБКА:  ошибка синтаксиса (примерное положение: "name") (символ 19)
+2023-10-07 21:59:16.937 MSK [2880] ОПЕРАТОР:  INSERT INTO users name VALUES ("toka")
+	
+2023-10-07 21:59:25.367 MSK [2880] ОШИБКА:  столбец "name" в таблице "users" не существует (символ 20)
+2023-10-07 21:59:25.367 MSK [2880] ОПЕРАТОР:  INSERT INTO users (name) VALUES (toka)
+	
+2023-10-07 22:00:21.604 MSK [2880] ОШИБКА:  отношение "users" уже существует
+2023-10-07 22:00:21.604 MSK [2880] ОПЕРАТОР:  CREATE TABLE users (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL
+	);
+2023-10-07 22:03:48.839 MSK [4120] LOG:  checkpoint starting: time
+2023-10-07 22:03:50.401 MSK [4120] LOG:  checkpoint complete: wrote 15 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.527 s, sync=0.025 s, total=1.563 s; sync files=15, longest=0.003 s, average=0.002 s; distance=56 kB, estimate=224 kB; lsn=0/1663190, redo lsn=0/1663158

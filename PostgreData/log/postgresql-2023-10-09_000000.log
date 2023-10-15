@@ -1,0 +1,429 @@
+2023-10-09 01:59:06.340 MSK [20780] ОШИБКА:  ошибка синтаксиса (примерное положение: "DECIMAL") (символ 601)
+2023-10-09 01:59:06.340 MSK [20780] ОПЕРАТОР:  CREATE TABLE IF NOT EXISTS users (
+	    id SERIAL PRIMARY KEY,
+	    nick_name VARCHAR(35) NOT NULL,
+	    image TEXT NOT NULL,
+		token VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    rating DECIMAL,
+		rating_count INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_images (
+	    id SERIAL PRIMARY KEY,
+	    club_id INT REFERENCES clubs(id),
+	    image_url TEXT NOT NULL
+	);
+	
+	CREATE TABLE locations (
+	    id SERIAL PRIMARY KEY,
+	    latitude DOUBLE DECIMAL NOT NULL,
+	    longitude DOUBLE PRECISION NOT NULL,
+	    address TEXT NOT NULL,
+	    city TEXT NOT NULL,
+	    metro TEXT,
+	    CONSTRAINT latitude_check CHECK (latitude >= -90 AND latitude <= 90),
+	    CONSTRAINT longitude_check CHECK (longitude >= -180 AND longitude <= 180)
+	);
+	
+	CREATE TABLE club_location (
+	    club_id INT REFERENCES clubs(id),
+	    location_id INT REFERENCES locations(id),
+	    PRIMARY KEY (club_id, location_id)
+	);
+	
+	CREATE TABLE amenities (
+	    id SERIAL PRIMARY KEY
+	);
+	
+	CREATE TABLE club_amenities (
+	    club_id INT REFERENCES clubs(id),
+	    amenity_id INT REFERENCES amenities(id),
+	    PRIMARY KEY (club_id, amenity_id)
+	);
+	
+	CREATE TABLE favorites (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id),
+	    object_id INT,
+	    object_type TEXT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coaches (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score DECIMAL NOT NULL,
+		reviewsCount INT NOT NULL,
+	);
+	
+	CREATE TABLE club_coaches (
+	    club_id INT REFERENCES clubs(id),
+	    coach_id INT REFERENCES coaches(id),
+	    PRIMARY KEY (club_id, coach_id)
+	);
+	
+	CREATE TABLE IF NOT EXISTS reviews (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+		coach_id INT REFERENCES coaches(id),
+		club_id INT NOT NULL,
+	    text TEXT NOT NULL,
+		score SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_admins (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+	    additional_admin_info TEXT
+	);
+2023-10-09 02:01:04.340 MSK [20780] ОШИБКА:  ошибка синтаксиса (примерное положение: "DECIMAL") (символ 598)
+2023-10-09 02:01:04.340 MSK [20780] ОПЕРАТОР:  CREATE TABLE IF NOT EXISTS users (
+	    id SERIAL PRIMARY KEY,
+	    nick_name VARCHAR(35) NOT NULL,
+	    image TEXT NOT NULL,
+		token VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    rating REAL,
+		rating_count INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_images (
+	    id SERIAL PRIMARY KEY,
+	    club_id INT REFERENCES clubs(id),
+	    image_url TEXT NOT NULL
+	);
+	
+	CREATE TABLE locations (
+	    id SERIAL PRIMARY KEY,
+	    latitude DOUBLE DECIMAL NOT NULL,
+	    longitude DOUBLE PRECISION NOT NULL,
+	    address TEXT NOT NULL,
+	    city TEXT NOT NULL,
+	    metro TEXT,
+	    CONSTRAINT latitude_check CHECK (latitude >= -90 AND latitude <= 90),
+	    CONSTRAINT longitude_check CHECK (longitude >= -180 AND longitude <= 180)
+	);
+	
+	CREATE TABLE club_location (
+	    club_id INT REFERENCES clubs(id),
+	    location_id INT REFERENCES locations(id),
+	    PRIMARY KEY (club_id, location_id)
+	);
+	
+	CREATE TABLE amenities (
+	    id SERIAL PRIMARY KEY
+	);
+	
+	CREATE TABLE club_amenities (
+	    club_id INT REFERENCES clubs(id),
+	    amenity_id INT REFERENCES amenities(id),
+	    PRIMARY KEY (club_id, amenity_id)
+	);
+	
+	CREATE TABLE favorites (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id),
+	    object_id INT,
+	    object_type TEXT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coaches (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score REAL NOT NULL,
+		reviewsCount INT NOT NULL,
+	);
+	
+	CREATE TABLE club_coaches (
+	    club_id INT REFERENCES clubs(id),
+	    coach_id INT REFERENCES coaches(id),
+	    PRIMARY KEY (club_id, coach_id)
+	);
+	
+	CREATE TABLE IF NOT EXISTS reviews (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+		coach_id INT REFERENCES coaches(id),
+		club_id INT NOT NULL,
+	    text TEXT NOT NULL,
+		score SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_admins (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+	    additional_admin_info TEXT
+	);
+2023-10-09 02:01:24.618 MSK [20780] ОШИБКА:  ошибка синтаксиса (примерное положение: ")") (символ 1545)
+2023-10-09 02:01:24.618 MSK [20780] ОПЕРАТОР:  CREATE TABLE IF NOT EXISTS users (
+	    id SERIAL PRIMARY KEY,
+	    nick_name VARCHAR(35) NOT NULL,
+	    image TEXT NOT NULL,
+		token VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    rating REAL,
+		rating_count INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_images (
+	    id SERIAL PRIMARY KEY,
+	    club_id INT REFERENCES clubs(id),
+	    image_url TEXT NOT NULL
+	);
+	
+	CREATE TABLE locations (
+	    id SERIAL PRIMARY KEY,
+	    latitude DOUBLE PRECISION NOT NULL,
+	    longitude DOUBLE PRECISION NOT NULL,
+	    address TEXT NOT NULL,
+	    city TEXT NOT NULL,
+	    metro TEXT,
+	    CONSTRAINT latitude_check CHECK (latitude >= -90 AND latitude <= 90),
+	    CONSTRAINT longitude_check CHECK (longitude >= -180 AND longitude <= 180)
+	);
+	
+	CREATE TABLE club_location (
+	    club_id INT REFERENCES clubs(id),
+	    location_id INT REFERENCES locations(id),
+	    PRIMARY KEY (club_id, location_id)
+	);
+	
+	CREATE TABLE amenities (
+	    id SERIAL PRIMARY KEY
+	);
+	
+	CREATE TABLE club_amenities (
+	    club_id INT REFERENCES clubs(id),
+	    amenity_id INT REFERENCES amenities(id),
+	    PRIMARY KEY (club_id, amenity_id)
+	);
+	
+	CREATE TABLE favorites (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id),
+	    object_id INT,
+	    object_type TEXT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coaches (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score REAL NOT NULL,
+		reviewsCount INT NOT NULL,
+	);
+	
+	CREATE TABLE club_coaches (
+	    club_id INT REFERENCES clubs(id),
+	    coach_id INT REFERENCES coaches(id),
+	    PRIMARY KEY (club_id, coach_id)
+	);
+	
+	CREATE TABLE IF NOT EXISTS reviews (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+		coach_id INT REFERENCES coaches(id),
+		club_id INT NOT NULL,
+	    text TEXT NOT NULL,
+		score SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_admins (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+	    additional_admin_info TEXT
+	);
+2023-10-09 02:01:37.004 MSK [20780] ОШИБКА:  столбец "user_id", указанный в ограничении внешнего ключа, не существует
+2023-10-09 02:01:37.004 MSK [20780] ОПЕРАТОР:  CREATE TABLE IF NOT EXISTS users (
+	    id SERIAL PRIMARY KEY,
+	    nick_name VARCHAR(35) NOT NULL,
+	    image TEXT NOT NULL,
+		token VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    rating REAL,
+		rating_count INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_images (
+	    id SERIAL PRIMARY KEY,
+	    club_id INT REFERENCES clubs(id),
+	    image_url TEXT NOT NULL
+	);
+	
+	CREATE TABLE locations (
+	    id SERIAL PRIMARY KEY,
+	    latitude DOUBLE PRECISION NOT NULL,
+	    longitude DOUBLE PRECISION NOT NULL,
+	    address TEXT NOT NULL,
+	    city TEXT NOT NULL,
+	    metro TEXT,
+	    CONSTRAINT latitude_check CHECK (latitude >= -90 AND latitude <= 90),
+	    CONSTRAINT longitude_check CHECK (longitude >= -180 AND longitude <= 180)
+	);
+	
+	CREATE TABLE club_location (
+	    club_id INT REFERENCES clubs(id),
+	    location_id INT REFERENCES locations(id),
+	    PRIMARY KEY (club_id, location_id)
+	);
+	
+	CREATE TABLE amenities (
+	    id SERIAL PRIMARY KEY
+	);
+	
+	CREATE TABLE club_amenities (
+	    club_id INT REFERENCES clubs(id),
+	    amenity_id INT REFERENCES amenities(id),
+	    PRIMARY KEY (club_id, amenity_id)
+	);
+	
+	CREATE TABLE favorites (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id),
+	    object_id INT,
+	    object_type TEXT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coaches (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score REAL NOT NULL,
+		reviewsCount INT NOT NULL
+	);
+	
+	CREATE TABLE club_coaches (
+	    club_id INT REFERENCES clubs(id),
+	    coach_id INT REFERENCES coaches(id),
+	    PRIMARY KEY (club_id, coach_id)
+	);
+	
+	CREATE TABLE IF NOT EXISTS reviews (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+		coach_id INT REFERENCES coaches(id),
+		club_id INT NOT NULL,
+	    text TEXT NOT NULL,
+		score SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_admins (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+	    additional_admin_info TEXT
+	);
+2023-10-09 02:02:26.067 MSK [20780] ОШИБКА:  столбец "user_id", указанный в ограничении внешнего ключа, не существует
+2023-10-09 02:02:26.067 MSK [20780] ОПЕРАТОР:  CREATE TABLE IF NOT EXISTS users (
+	    id SERIAL PRIMARY KEY,
+	    nick_name VARCHAR(35) NOT NULL,
+	    image TEXT NOT NULL,
+		token VARCHAR(255) NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS clubs (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(35) NOT NULL,
+	    rating REAL,
+		rating_count INT NOT NULL,
+	    description TEXT NOT NULL,
+	    reviewsCount INT NOT NULL,
+	    cost SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_images (
+	    id SERIAL PRIMARY KEY,
+	    club_id INT REFERENCES clubs(id),
+	    image_url TEXT NOT NULL
+	);
+	
+	CREATE TABLE locations (
+	    id SERIAL PRIMARY KEY,
+	    latitude DOUBLE PRECISION NOT NULL,
+	    longitude DOUBLE PRECISION NOT NULL,
+	    address TEXT NOT NULL,
+	    city TEXT NOT NULL,
+	    metro TEXT,
+	    CONSTRAINT latitude_check CHECK (latitude >= -90 AND latitude <= 90),
+	    CONSTRAINT longitude_check CHECK (longitude >= -180 AND longitude <= 180)
+	);
+	
+	CREATE TABLE club_location (
+	    club_id INT REFERENCES clubs(id),
+	    location_id INT REFERENCES locations(id),
+	    PRIMARY KEY (club_id, location_id)
+	);
+	
+	CREATE TABLE amenities (
+	    id SERIAL PRIMARY KEY
+	);
+	
+	CREATE TABLE club_amenities (
+	    club_id INT REFERENCES clubs(id),
+	    amenity_id INT REFERENCES amenities(id),
+	    PRIMARY KEY (club_id, amenity_id)
+	);
+	
+	CREATE TABLE favorites (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(user_id),
+	    object_id INT,
+	    object_type TEXT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS coaches (
+	    id SERIAL PRIMARY KEY,
+	    name VARCHAR(255) NOT NULL,
+	    score REAL NOT NULL,
+		reviewsCount INT NOT NULL
+	);
+	
+	CREATE TABLE club_coaches (
+	    club_id INT REFERENCES clubs(id),
+	    coach_id INT REFERENCES coaches(id),
+	    PRIMARY KEY (club_id, coach_id)
+	);
+	
+	CREATE TABLE IF NOT EXISTS reviews (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+		coach_id INT REFERENCES coaches(id),
+		club_id INT NOT NULL,
+	    text TEXT NOT NULL,
+		score SMALLINT NOT NULL
+	);
+	
+	CREATE TABLE IF NOT EXISTS club_admins (
+	    id SERIAL PRIMARY KEY,
+	    user_id INT REFERENCES users(id),
+	    additional_admin_info TEXT
+	);
+2023-10-09 02:03:53.719 MSK [4120] LOG:  checkpoint starting: time
+2023-10-09 02:04:02.235 MSK [4120] LOG:  checkpoint complete: wrote 78 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=8.405 s, sync=0.098 s, total=8.516 s; sync files=95, longest=0.005 s, average=0.002 s; distance=488 kB, estimate=488 kB; lsn=0/1727AB8, redo lsn=0/1727A80
+2023-10-09 02:08:53.244 MSK [4120] LOG:  checkpoint starting: time
+2023-10-09 02:09:06.743 MSK [4120] LOG:  checkpoint complete: wrote 123 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=13.365 s, sync=0.120 s, total=13.499 s; sync files=91, longest=0.004 s, average=0.002 s; distance=589 kB, estimate=589 kB; lsn=0/17BAF20, redo lsn=0/17BAEE8
