@@ -212,7 +212,7 @@ func handleClubsGetList(w http.ResponseWriter, r *http.Request) {
 			s += strconv.Itoa(v) + ","
 		}
 		s = strings.TrimSuffix(s, ",")
-		t = strings.Replace(t, "_COST_", " AND (ARRAY["+s+"] && c.costs)", 1)
+		t = strings.Replace(t, "_COST_", "AND c.category = ANY(ARRAY["+s+"])", 1)
 	} else {
 		t = strings.Replace(t, "_COST_", "", 1)
 	}
