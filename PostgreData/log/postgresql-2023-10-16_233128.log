@@ -1,0 +1,7 @@
+2023-10-16 23:31:28.377 MSK [5728] LOG:  database system was interrupted; last known up at 2023-10-14 22:41:47 MSK
+2023-10-16 23:31:29.285 MSK [5728] LOG:  database system was not properly shut down; automatic recovery in progress
+2023-10-16 23:31:29.289 MSK [5728] LOG:  redo starts at 0/190BEB8
+2023-10-16 23:31:29.289 MSK [5728] LOG:  invalid record length at 0/190BFA0: expected at least 24, got 0
+2023-10-16 23:31:29.289 MSK [5728] LOG:  redo done at 0/190BF68 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2023-10-16 23:31:29.292 MSK [5712] LOG:  checkpoint starting: end-of-recovery immediate wait
+2023-10-16 23:31:29.307 MSK [5712] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.004 s, total=0.018 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/190BFA0, redo lsn=0/190BFA0

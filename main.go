@@ -357,9 +357,9 @@ func handleClubsGetFullInfo(w http.ResponseWriter, r *http.Request) {
 		} `json:"admin"`
 		Description  string `json:"description"`
 		ReviewsCount int    `json:"rating_count"`
-		Cost         string `json:"cost"`
-		Facilities   string `json:"facilities"`
+		Cost         int    `json:"cost"`
 		Category     string `json:"category"`
+		Facilities   string `json:"facilities"`
 		IsFavorite   bool   `json:"isFavorite"`
 	}{}
 	err = db.QueryRow(t, id, request.Id).Scan(&responce.ID, &responce.Name, &responce.ImageURLs, &responce.Location.Latitude, &responce.Location.Longitude, &responce.Location.Address, &responce.Location.City, &responce.Location.Metro, &responce.Score, &responce.Admin.AdminId, &responce.Admin.AdminName, &responce.Admin.AdminPhone, &responce.Description, &responce.ReviewsCount, &responce.Cost, &responce.Category, &responce.Facilities, &responce.IsFavorite)
